@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RideShareDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="LicensePlateNo" />
+    </Key>
+    <Property Name="LicensePlateNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Drivers" Relationship="Self.FK_Driver_LicensePlateNo" FromRole="Car" ToRole="Driver" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreditCardNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="XCoordinate" Type="Double" Nullable="false" />
+    <Property Name="YCoordinate" Type="Double" Nullable="false" />
+    <NavigationProperty Name="RideInfoes" Relationship="Self.FK_RideInfo_CustomerId" FromRole="Customer" ToRole="RideInfo" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverId" />
+    </Key>
+    <Property Name="DriverId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LicensePlateNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rating" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Driver_LicensePlateNo" FromRole="Driver" ToRole="Car" />
+    <NavigationProperty Name="RideInfoes" Relationship="Self.FK_RideInfo_DriverId" FromRole="Driver" ToRole="RideInfo" />
+  </EntityType>
+  <EntityType Name="RideInfo">
+    <Key>
+      <PropertyRef Name="DriverId" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Time" />
+    </Key>
+    <Property Name="DriverId" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_RideInfo_CustomerId" FromRole="RideInfo" ToRole="Customer" />
+    <NavigationProperty Name="Driver" Relationship="Self.FK_RideInfo_DriverId" FromRole="RideInfo" ToRole="Driver" />
+  </EntityType>
+  <Association Name="FK_Driver_LicensePlateNo">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="LicensePlateNo" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="LicensePlateNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideInfo_CustomerId">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="RideInfo" Type="Self.RideInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="RideInfo">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideInfo_DriverId">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="RideInfo" Type="Self.RideInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverId" />
+      </Principal>
+      <Dependent Role="RideInfo">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RideShareDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="Self.Car" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="RideInfoes" EntityType="Self.RideInfo" />
+    <AssociationSet Name="FK_Driver_LicensePlateNo" Association="Self.FK_Driver_LicensePlateNo">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Driver" EntitySet="Drivers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideInfo_CustomerId" Association="Self.FK_RideInfo_CustomerId">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="RideInfo" EntitySet="RideInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideInfo_DriverId" Association="Self.FK_RideInfo_DriverId">
+      <End Role="Driver" EntitySet="Drivers" />
+      <End Role="RideInfo" EntitySet="RideInfoes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

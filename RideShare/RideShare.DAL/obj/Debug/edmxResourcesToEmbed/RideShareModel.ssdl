@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RideShareDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="LicensePlateNo" />
+    </Key>
+    <Property Name="LicensePlateNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreditCardNo" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="XCoordinate" Type="float" Nullable="false" />
+    <Property Name="YCoordinate" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Driver">
+    <Key>
+      <PropertyRef Name="DriverId" />
+    </Key>
+    <Property Name="DriverId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LicensePlateNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Rating" Type="float" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="RideInfo">
+    <Key>
+      <PropertyRef Name="DriverId" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Time" />
+    </Key>
+    <Property Name="DriverId" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Driver_LicensePlateNo">
+    <End Role="Car" Type="Self.Car" Multiplicity="1" />
+    <End Role="Driver" Type="Self.Driver" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="LicensePlateNo" />
+      </Principal>
+      <Dependent Role="Driver">
+        <PropertyRef Name="LicensePlateNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideInfo_CustomerId">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="RideInfo" Type="Self.RideInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="RideInfo">
+        <PropertyRef Name="Email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RideInfo_DriverId">
+    <End Role="Driver" Type="Self.Driver" Multiplicity="1" />
+    <End Role="RideInfo" Type="Self.RideInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Driver">
+        <PropertyRef Name="DriverId" />
+      </Principal>
+      <Dependent Role="RideInfo">
+        <PropertyRef Name="DriverId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RideShareDBModelStoreContainer">
+    <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RideInfo" EntityType="Self.RideInfo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [RideInfo].[DriverId] AS [DriverId], 
+    [RideInfo].[Email] AS [Email], 
+    [RideInfo].[Time] AS [Time]
+    FROM [dbo].[RideInfo] AS [RideInfo]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Driver_LicensePlateNo" Association="Self.FK_Driver_LicensePlateNo">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="Driver" EntitySet="Driver" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideInfo_CustomerId" Association="Self.FK_RideInfo_CustomerId">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="RideInfo" EntitySet="RideInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RideInfo_DriverId" Association="Self.FK_RideInfo_DriverId">
+      <End Role="Driver" EntitySet="Driver" />
+      <End Role="RideInfo" EntitySet="RideInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

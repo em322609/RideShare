@@ -1,0 +1,9 @@
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\RideShare.DAL.dll.config
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\RideShare.DAL.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\RideShare.DAL.pdb
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\EntityFramework.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\EntityFramework.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.pdb
