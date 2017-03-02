@@ -30,6 +30,8 @@
           <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+          <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -42,5 +44,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetCoordinates" FunctionName="RideShareDBModel.Store.GetCoordinates">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RideShareDBModel.GetCoordinates_Result">
+          <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+          <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCoordinatesDriver" FunctionName="RideShareDBModel.Store.GetCoordinatesDriver">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="RideShareDBModel.GetCoordinatesDriver_Result">
+          <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+          <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

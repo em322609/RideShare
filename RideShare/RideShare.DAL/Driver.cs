@@ -24,6 +24,8 @@ namespace RideShare.DAL
         public string LicensePlateNo { get; set; }
         public string Name { get; set; }
         public double Rating { get; set; }
+        public Nullable<double> XCoordinate { get; set; }
+        public Nullable<double> YCoordinate { get; set; }
     
         public virtual Car Car { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

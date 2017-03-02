@@ -33,6 +33,8 @@
           <Property Name="LicensePlateNo" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="XCoordinate" Type="float" />
+          <Property Name="YCoordinate" Type="float" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -82,6 +84,12 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetCoordinates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerEmail" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetCoordinatesDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DriverId" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="RideShareDBModelStoreContainer">
           <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
@@ -141,6 +149,8 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
           <Property Name="LicensePlateNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="XCoordinate" Type="Double" />
+          <Property Name="YCoordinate" Type="Double" />
           <NavigationProperty Name="Car" Relationship="Self.FK_Driver_LicensePlateNo" FromRole="Driver" ToRole="Car" />
           <NavigationProperty Name="RideInfoes" Relationship="Self.FK_RideInfo_DriverId" FromRole="Driver" ToRole="RideInfo" />
         </EntityType>
@@ -209,7 +219,21 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
             <End Role="Driver" EntitySet="Drivers" />
             <End Role="RideInfo" EntitySet="RideInfoes" />
           </AssociationSet>
+          <FunctionImport Name="GetCoordinates" ReturnType="Collection(RideShareDBModel.GetCoordinates_Result)">
+            <Parameter Name="CustomerEmail" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetCoordinatesDriver" ReturnType="Collection(RideShareDBModel.GetCoordinatesDriver_Result)">
+            <Parameter Name="DriverId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="GetCoordinates_Result">
+          <Property Type="Double" Name="XCoordinate" Nullable="false" />
+          <Property Type="Double" Name="YCoordinate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetCoordinatesDriver_Result">
+          <Property Type="Double" Name="XCoordinate" Nullable="true" />
+          <Property Type="Double" Name="YCoordinate" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -245,6 +269,8 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
                 <ScalarProperty Name="LicensePlateNo" ColumnName="LicensePlateNo" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+                <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -257,6 +283,22 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCoordinates" FunctionName="RideShareDBModel.Store.GetCoordinates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RideShareDBModel.GetCoordinates_Result">
+                <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+                <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetCoordinatesDriver" FunctionName="RideShareDBModel.Store.GetCoordinatesDriver">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RideShareDBModel.GetCoordinatesDriver_Result">
+                <ScalarProperty Name="XCoordinate" ColumnName="XCoordinate" />
+                <ScalarProperty Name="YCoordinate" ColumnName="YCoordinate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

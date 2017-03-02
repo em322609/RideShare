@@ -28,6 +28,8 @@
     <Property Name="LicensePlateNo" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
     <Property Name="Rating" Type="float" Nullable="false" />
+    <Property Name="XCoordinate" Type="float" />
+    <Property Name="YCoordinate" Type="float" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -77,6 +79,12 @@ warning 6002: The table/view 'RideShareDB.dbo.RideInfo' does not have a primary 
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="GetCoordinates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerEmail" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetCoordinatesDriver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DriverId" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="RideShareDBModelStoreContainer">
     <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />

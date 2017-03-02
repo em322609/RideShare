@@ -12,6 +12,8 @@ namespace RideShare.DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class RideShareDBEntities : DbContext
     {
@@ -29,5 +31,23 @@ namespace RideShare.DAL
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<RideInfo> RideInfoes { get; set; }
+    
+        public virtual ObjectResult<GetCoordinates_Result> GetCoordinates(string customerEmail)
+        {
+            var customerEmailParameter = customerEmail != null ?
+                new ObjectParameter("CustomerEmail", customerEmail) :
+                new ObjectParameter("CustomerEmail", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCoordinates_Result>("GetCoordinates", customerEmailParameter);
+        }
+    
+        public virtual ObjectResult<GetCoordinatesDriver_Result> GetCoordinatesDriver(Nullable<int> driverId)
+        {
+            var driverIdParameter = driverId.HasValue ?
+                new ObjectParameter("DriverId", driverId) :
+                new ObjectParameter("DriverId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCoordinatesDriver_Result>("GetCoordinatesDriver", driverIdParameter);
+        }
     }
 }

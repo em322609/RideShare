@@ -30,6 +30,8 @@
     <Property Name="LicensePlateNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Rating" Type="Double" Nullable="false" />
+    <Property Name="XCoordinate" Type="Double" />
+    <Property Name="YCoordinate" Type="Double" />
     <NavigationProperty Name="Car" Relationship="Self.FK_Driver_LicensePlateNo" FromRole="Driver" ToRole="Car" />
     <NavigationProperty Name="RideInfoes" Relationship="Self.FK_RideInfo_DriverId" FromRole="Driver" ToRole="RideInfo" />
   </EntityType>
@@ -98,5 +100,19 @@
       <End Role="Driver" EntitySet="Drivers" />
       <End Role="RideInfo" EntitySet="RideInfoes" />
     </AssociationSet>
+    <FunctionImport Name="GetCoordinates" ReturnType="Collection(RideShareDBModel.GetCoordinates_Result)">
+      <Parameter Name="CustomerEmail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetCoordinatesDriver" ReturnType="Collection(RideShareDBModel.GetCoordinatesDriver_Result)">
+      <Parameter Name="DriverId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="GetCoordinates_Result">
+    <Property Type="Double" Name="XCoordinate" Nullable="false" />
+    <Property Type="Double" Name="YCoordinate" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetCoordinatesDriver_Result">
+    <Property Type="Double" Name="XCoordinate" Nullable="true" />
+    <Property Type="Double" Name="YCoordinate" Nullable="true" />
+  </ComplexType>
 </Schema>
