@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using DM = RideShareWebAPI.Models;
 using RideShare.DAL;
 
 namespace RideShareWebAPI.Controllers
@@ -18,9 +19,16 @@ namespace RideShareWebAPI.Controllers
         private RideShareDBEntities db = new RideShareDBEntities();
 
         // GET: api/Customers
-        public IQueryable<Customer> GetCustomers()
+        public IEnumerable<DM.Customer> GetCustomers()
         {
-            return db.Customers;
+
+            var temp = db.Customers.ToList();
+            List<DM.Customer> customer = new List<Models.Customer>();
+            foreach (var item in temp)
+            {
+                customer.Add(ConvertEntityToModel.CustomerToModel(item));
+            }
+            return customer;
         }
 
         // GET: api/Customers/5
