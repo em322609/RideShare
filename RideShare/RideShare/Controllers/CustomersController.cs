@@ -18,6 +18,7 @@ namespace RideShare
         // GET: Customers
         public async Task<ActionResult> Index()
         {
+            ViewData["drivers"] = db.Drivers.Include(d => d.Car);
             return View(await db.Customers.ToListAsync());
         }
 
