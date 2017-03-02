@@ -7,7 +7,6 @@ C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.pdb
-C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.csprojResolveAssemblyReference.cache
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.Core.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.PlatformServices.dll
