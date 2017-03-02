@@ -49,7 +49,7 @@ namespace RideShare
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "DriverId,LicensePlateNo,Name,Rating")] Driver driver)
+        public async Task<ActionResult> Create([Bind(Include = "DriverId,LicensePlateNo,Name,Rating,XCoordinate,YCoordinate")] Driver driver)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace RideShare
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "DriverId,LicensePlateNo,Name,Rating")] Driver driver)
+        public async Task<ActionResult> Edit([Bind(Include = "DriverId,LicensePlateNo,Name,Rating,XCoordinate,YCoordinate")] Driver driver)
         {
             if (ModelState.IsValid)
             {
