@@ -8,3 +8,16 @@ C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.pdb
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.csprojResolveAssemblyReference.cache
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.Core.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.PlatformServices.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Zlib.Portable.dll
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.pdb
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.Core.pdb
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.Core.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.PlatformServices.pdb
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.PlatformServices.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Zlib.Portable.xml

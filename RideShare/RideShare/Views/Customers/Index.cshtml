@@ -4,60 +4,31 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditCardNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.XCoordinate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.YCoordinate)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreditCardNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.XCoordinate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YCoordinate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Email }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Email }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Email })
-        </td>
-    </tr>
-}
-
-</table>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Map Initialize</h1>
+<div id="map"></div>
+<script>
+      function initMap() {
+        var uluru = {lat: 0.000, lng: 0.000};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD65tdRJEKY1TVWxSApzzqI9NH-FghvJYY&callback=initMap">
+</script>
+</body>
