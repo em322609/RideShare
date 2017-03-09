@@ -20,3 +20,4 @@ C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Google.Apis.PlatformServices.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\bin\Debug\Zlib.Portable.xml
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShare.DAL\obj\Debug\RideShare.DAL.csprojResolveAssemblyReference.cache
