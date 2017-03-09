@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideShare", "RideShare\RideShare.csproj", "{7549D0EE-0A91-48E4-B2DF-03FFD74E1FBF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F2CCD17-9302-4653-BD92-A3D8E512F753} = {4F2CCD17-9302-4653-BD92-A3D8E512F753}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RideShare.DAL", "RideShare.DAL\RideShare.DAL.csproj", "{1277DAEE-CFBC-456C-8B01-BABE1F4FCF99}"
 EndProject
