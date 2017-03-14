@@ -11,7 +11,9 @@
         })
     }
 
-    function checkCustomer($scope) {
-
+    function checkCustomer($scope, Email, Pword) {
+        angular.forEach($scope.customer, function (value, index) {
+            console.log(value.Email);
+        })
     }
 })

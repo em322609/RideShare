@@ -10,15 +10,15 @@
     }
 </style>
 <h2>Welcome To RideShare</h2>
-<body data-ng-app="APIModule">
+<body ng-controller="APIController" data-ng-app="APIModule">
     <center><span><img src="RRRideShare.jpg" class="img-circle" alt="Icon" /></span></center>
     <h3> Catch A Ride! Login as a Member </h3>
-    <form ng-submit="checkCustomer($scope)">
+    <form ng-submit="APIController.checkCustomer($scope, Email, Pword)">
         <label for="Email">Email:    </label> <input ng-model="Email" type="text" name="Email" required /> <br />
         <label for="Password">Password: </label> <input ng-model="Pword" type="text" name="Password" required /> <br />
-        <input type="submit" value="Login" class="" />
+        <input type="submit" value="Login"/>
     </form>
-    <div id="tblSubs" ng-controller="APIController">
+    <div id="tblSubs">
         
             <p ng-repeat="item in customer">{{item.Email}}</p>
         
