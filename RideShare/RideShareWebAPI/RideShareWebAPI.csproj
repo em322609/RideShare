@@ -145,6 +145,7 @@
     <Content Include="Scripts\APIScripts\Controller.js" />
     <Content Include="Scripts\APIScripts\Module.js" />
     <Content Include="Scripts\APIScripts\Service.js" />
+    <Content Include="Scripts\routing.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Driver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

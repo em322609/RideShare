@@ -13,5 +13,11 @@ namespace RideShareWebAPI.Controllers
             DM.Customer result = new Models.Customer(entity.Email, entity.Password, entity.Name, entity.PhoneNo, entity.XCoordinate, entity.YCoordinate);
             return result;
         }
+
+        public static DM.Driver DriverToModel(RideShare.DAL.Driver entity)
+        {
+            DM.Driver result = new Models.Driver(entity.DriverId, entity.LicensePlateNo, entity.Name, entity.Rating, entity.XCoordinate, entity.YCoordinate);
+            return result;
+        }
     }
 }

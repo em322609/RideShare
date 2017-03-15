@@ -45,6 +45,7 @@ C:\Users\em322_000\Desktop\RideShare\RideShare\RideShareWebAPI\bin\System.Web.Ht
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShareWebAPI\bin\System.Web.Http.WebHost.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.pdb
+C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.csprojResolveAssemblyReference.cache
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\ApplicationInsights.config
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\roslyn\csc.exe
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -89,6 +90,5 @@ C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\New
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\System.Net.Http.Formatting.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\System.Web.Http.xml
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\bin\System.Web.Http.WebHost.xml
-C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.csprojResolveAssemblyReference.cache
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.dll
 C:\Users\em322_000\Desktop\RideShare\RideShare\RideShare\RideShareWebAPI\obj\Debug\RideShareWebAPI.pdb
