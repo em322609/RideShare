@@ -7,3 +7,8 @@
         return $http.get("http://localhost:61017/api/Drivers")
     }
 });
+
+app.service("dataService", function () {
+    this.customer = null;
+    this.driverList = null;
+})

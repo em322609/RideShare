@@ -1,5 +1,5 @@
 ﻿var app;  
 (function ()  
 {  
-    app = angular.module("APIModule", []);  
+    app = angular.module("APIModule", ["ngRoute"]);
 })();  
