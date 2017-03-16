@@ -18,8 +18,8 @@
                 servCall.then(function (d) {
                     $scope.drivers = d.data;
                     $scope.validatedCustomer = value;
-                    dataService.customer = $scope.validatedCustomer;
-                    dataService.driverList = $scope.drivers;
+                    dataService.addCustomer($scope.validatedCustomer);
+                    dataService.addDriver($scope.drivers);
                     window.location = "../Views/customer.html";
                 }, function (error) {
                     $scope.error('Oops! Something went wrong while fetching the data.');
@@ -38,17 +38,5 @@ app.controller('customerController', function ($scope, dataService) {
 
         })
     }
-
-})
-
-app.controller('driverController', function ($scope) {
-
-})
-
-app.controller('rideStatusController', function ($scope) {
-
-})
-
-app.controller('aboutController', function ($scope) {
 
 })

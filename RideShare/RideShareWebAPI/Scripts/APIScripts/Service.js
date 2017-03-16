@@ -8,7 +8,22 @@
     }
 });
 
-app.service("dataService", function () {
-    this.customer = null;
+app.factory("dataService", function () {
     this.driverList = null;
-})
+    this.customer = null;
+
+    this.addDriver = function (drivers) {
+        this.driverList = drivers;
+        
+    }
+
+    this.addCustomer = function (customer) {
+        this.customer = customer;
+       
+    }
+
+    return {
+        driverList : this.driverList,
+        customer : this.customer
+           };
+});
